@@ -5,10 +5,8 @@
       "src": "package.json",
       "use": "@vercel/next",
       "config": {
-        "includeFiles": [
-          "next.config.ts",
-          "next.config.js"
-        ]
+        "maxLambdaSize": "50mb",
+        "runtime": "nodejs20.x"
       }
     }
   ],
@@ -17,5 +15,10 @@
       "src": "/(.*)",
       "dest": "/"
     }
-  ]
+  ],
+  "build": {
+    "env": {
+      "NEXT_TELEMETRY_DISABLED": "1"
+    }
+  }
 }
